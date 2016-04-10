@@ -12,15 +12,65 @@
     <h1>剣道スコア表</h1>
     <table border="1">
       <tr>
-        <td>りんご</td>
-        <td>甘酸っぱい</td>
-        <td>おおむね赤</td>
+        <td>先鋒</td>
+        <td>次鋒</td>
+        <td>中堅</td>
+        <td>副将</td>
+        <td>大将</td>
+        <td>取得本数</td>
+        <td>勝数</td>
+        <td>勝敗</td>
       </tr>
       <tr>
-        <td>なつみかん</td>
-        <td>かなり酸っぱいと思う</td>
-        <td>たいてい黄色</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id = "m1"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
+    <button id="men">味方メン</button>
+    <button id="EneMen">敵メン</button>
+    <script>
+        document.getElementById('men').addEventListener('click', function MikataMen() {
+            "use strict"; if(document.getElementById('m1').innerHTML.length==0){
+                document.getElementById('m1').innerHTML = 'メ';
+            }
+            else{
+                document.getElementById('m1').innerHTML = 'メメ';
+            }
+        });
+        
+    </script>
+    
   </body>
 </html>
