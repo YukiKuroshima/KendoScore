@@ -32,7 +32,7 @@
       </tr>
       <tr>
         <td id = "m1"></td>
-        <td></td>
+        <td id = "m2"></td>
         <td></td>
         <td></td>
         <td></td>
@@ -60,14 +60,26 @@
     </table>
     <button id="men">味方メン</button>
     <button id="EneMen">敵メン</button>
+    <br>
+    <button id="next">次へ</button>
+
     <script>
+        var idList = ['m1','m2','m3','m4','m5']; //array for id
+        var EneidList = ['Em1','Em2','Em3','Em4','Em5']; //array for id
+        var n = 0; //counter for id
+
         document.getElementById('men').addEventListener('click', function MikataMen() {
-            "use strict"; if(document.getElementById('m1').innerHTML.length==0){
-                document.getElementById('m1').innerHTML = 'メ';
+            "use strict";
+            if(document.getElementById(idList[n]).innerHTML.length==0){
+                document.getElementById(idList[n]).innerHTML = 'メ';
             }
             else{
-                document.getElementById('m1').innerHTML = 'メメ';
+                document.getElementById(idList[n++]).innerHTML = 'メメ';
             }
+        });
+        
+        document.getElementById('next').addEventListener('click', function moveId() {
+            n++
         });
         
     </script>
