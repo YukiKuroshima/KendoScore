@@ -2,7 +2,7 @@ var idList = ['m1', 'm2', 'm3', 'm4', 'm5']; //array for id
 var EneidList = ['Em1', 'Em2', 'Em3', 'Em4', 'Em5']; //array for id
 var n = 0; //counter for id
 
-function isTotalLessThanThree() { // if less than or equalthree return true
+{function isTotalLessThanThree() { // if less than or equalthree return true
     "use strict";
     var result = false;
     if (document.getElementById(idList[n]).innerHTML.length
@@ -10,14 +10,16 @@ function isTotalLessThanThree() { // if less than or equalthree return true
         result = true;
     }
     return result;
-}
+}}
 
 //my side
 document.getElementById("men").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree === true) {
+    if (document.getElementById(idList[n]).innerHTML.length < 2) {
         document.getElementById(idList[n]).innerHTML += 'メ';
-    } else {alert("次へを押してください"); }
+    } else {
+        alert("次へを押してください");
+    }
 }, false);
 
 document.getElementById("ko").addEventListener('click', function () {
