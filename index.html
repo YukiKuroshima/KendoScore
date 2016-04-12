@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<meta charset="utf-8">
+  <head>
+    <link href="common.css" rel="stylesheet" type="text/css" media="all">
+    <title>簡単剣道スコア表</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <h1>剣道スコア表</h1>
+    <table border="1">
+      <tr>
+        <td>先鋒</td>
+        <td>次鋒</td>
+        <td>中堅</td>
+        <td>副将</td>
+        <td>大将</td>
+        <td>取得本数</td>
+        <td>勝数</td>
+        <td>勝敗</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td id = "mWin" rowspan="2"></td>
+      </tr>
+      <tr>
+        <td id = "m1"></td>
+        <td id = "m2"></td>
+        <td id = "m3"></td>
+        <td id = "m4"></td>
+        <td id = "m5"></td>
+        <td id = "mScore" ></td>
+        <td id = "mWinNum"></td>
+      </tr>
+      <tr>
+        <td id = "Em1"></td>
+        <td id = "Em2"></td>
+        <td id = "Em3"></td>
+        <td id = "Em4"></td>
+        <td id = "Em5"></td>
+        <td id = "eScore"></td>
+        <td id = "eWinNum"></td>
+        <td id = "eWin" rowspan="2"></td>
+      </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+    </table>
+    <button id="men">味方メン</button>
+    <button id="ko">味方コテ</button>
+    <button id="do">味方ドウ</button>
+    <button id="tu">味方ツキ</button>
+    <br/>
+
+    <button id="Enemen">敵メン</button>
+    <button id="Eneko">敵コテ</button>
+    <button id="Enedo">敵ドウ</button>
+    <button id="Enetu">敵ツキ</button>
+
+    <br/>
+    <button id="next">次へ</button>
+
+    <script type="text/javascript" src="common.js" charset="UTF-8"></script>
+  </body>
+</html>
