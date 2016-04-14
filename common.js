@@ -144,6 +144,7 @@ document.getElementById("ko").addEventListener('click', function () {
     "use strict";
     if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'コ';
+        addedScoreList.push(idList[n]);
         score++;
         upDateScore();
     } else {alert("次へを押してください"); }
@@ -153,6 +154,7 @@ document.getElementById("do").addEventListener('click', function () {
     "use strict";
     if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'ド';
+        addedScoreList.push(idList[n]);
         score++;
         upDateScore();
     } else {alert("次へを押してください"); }
@@ -162,6 +164,7 @@ document.getElementById("tu").addEventListener('click', function () {
     "use strict";
     if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'ツ';
+        addedScoreList.push(idList[n]);
         score++;
         upDateScore();
     } else {alert("次へを押してください"); }
@@ -182,6 +185,7 @@ document.getElementById("Eneko").addEventListener('click', function () {
     "use strict";
     if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'コ';
+        addedScoreList.push(EneidList[n])
         eneScore++;
         upDateScore();
     } else {alert("次へを押してください"); }
@@ -191,6 +195,7 @@ document.getElementById("Enedo").addEventListener('click', function () {
     "use strict";
     if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'ド';
+        addedScoreList.push(EneidList[n])
         eneScore++;
         upDateScore();
     } else {alert("次へを押してください"); }
@@ -200,6 +205,7 @@ document.getElementById("Enetu").addEventListener('click', function () {
     "use strict";
     if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'ツ';
+        addedScoreList.push(EneidList[n])
         eneScore++;
         upDateScore();
     } else {alert("次へを押してください"); }
