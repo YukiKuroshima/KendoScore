@@ -237,11 +237,3 @@ document.getElementById('undo').addEventListener('click', function() {
     console.log("after " + n);
     highLightCurrentColumn();
 }, false);
-
-document.getElementById('next').addEventListener('mousedown', function(){
-    this.className = 'pushed';
-})
-
-document.getElementById('next').addEventListener('mouseup', function(){
-    this.className = '';
-})
