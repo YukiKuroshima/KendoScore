@@ -48,25 +48,25 @@ function upDateScore() {
 function highLightCurrentColumn() {
   //color current pos
   var temp = document.getElementsByClassName(colList[n]);
-  if(temp[0].style.backgroundColor !== "green"){
+  if(temp[0].style.backgroundColor !== "#81C3A5"){
     for (var i = 0; i < temp.length; i++) {
-      temp[i].style.backgroundColor = 'green';
+      temp[i].style.backgroundColor = "#81C3A5";
     }
   }
 
   if(n > 0 && n < 5){ //means pos is not at 0 (1 to 4)
     var temp2 = document.getElementsByClassName(colList[n - 1]); // check before
-    if(temp2[0].style.backgroundColor === 'green'){
+    if(temp2[0].style.backgroundColor != "#e0e0e0"){
       for (var i = 0; i < temp2.length; i++) {
-        temp2[i].style.backgroundColor = "white";
+        temp2[i].style.backgroundColor = "#e0e0e0";
       }
     }
   }
   if(-1 < n && n < 4){ // means n is 0 to 3(one before last element)
     var temp3 = document.getElementsByClassName(colList[n + 1]); // check after
-    if(temp3[0].style.backgroundColor === 'green'){
+    if(temp3[0].style.backgroundColor != "#e0e0e0"){
       for (var i = 0; i < temp3.length; i++) {
-        temp3[i].style.backgroundColor = "white";
+        temp3[i].style.backgroundColor = "#e0e0e0";
       }
     }
   }
@@ -237,3 +237,11 @@ document.getElementById('undo').addEventListener('click', function() {
     console.log("after " + n);
     highLightCurrentColumn();
 }, false);
+
+document.getElementById('next').addEventListener('mousedown', function(){
+    this.className = 'pushed';
+})
+
+document.getElementById('next').addEventListener('mouseup', function(){
+    this.className = '';
+})
