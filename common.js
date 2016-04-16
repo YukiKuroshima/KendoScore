@@ -13,27 +13,68 @@ highLightCurrentColumn(); //highlight the first column
 function isTotalLessThanThree() { // if less than or equalthree return true
     "use strict";
     var result = true;
+    var myLength = 0;
+    var enLength = 0;
+    for(var i = 0; i < document.getElementById(idList[n]).innerHTML.length; i++){
+//console.log(document.getElementById(idList[n]).innerHTML.substr(i,i+1));
+        if(document.getElementById(idList[n]).innerHTML.substr(i,i+1)!='▲'){
+            myLength++;
+        }
+    }
+    for(var i = 0; i < document.getElementById(EneidList[n]).innerHTML.length; i++){
+        if(document.getElementById(EneidList[n]).innerHTML.substr(i,i+1)!='▲'){
+            enLength++;
+        }
+    }
 
-    if (document.getElementById(idList[n]).innerHTML.length
-            + document.getElementById(EneidList[n]).innerHTML.length >= 3) {
+    if (myLength + enLength >= 3) {
         result = false;
     }
+    console.log(myLength + "  " + enLength);
+    return result;
+}
+
+function isThisCellFull(listID) { // return true if this cell has two or more char( means full)
+    "use strict";
+    var result = true;
+    var len = 0;
+    for(var i = 0; i < document.getElementById(listID).innerHTML.length; i++){
+//console.log(document.getElementById(listID).innerHTML.substr(i,i+1));
+        if(document.getElementById(listID).innerHTML.substr(i,i+1)!='▲'){
+            len++;
+        }
+    }
+    if(len < 2) result = false;
     return result;
 }
 
 function getWinnerNum() {
   "use strict";
+  score = 0;
+  eneScore =0;
   winCount = 0;
   eWinCount = 0;
-  for (var i = 0; i < n + 1; i++){
-    if(document.getElementById(idList[i]).innerHTML.length  // our team win
-       > document.getElementById(EneidList[i]).innerHTML.length) {
-        winCount++;
-    }
-    else if(document.getElementById(idList[i]).innerHTML.length  // enemy team win
-       < document.getElementById(EneidList[i]).innerHTML.length) {
-        eWinCount++;
-    }
+  var tempScore = 0;
+  var tempEneScore = 0;
+
+  for(var i = 0; i < n + 1; i++){
+      for(var j = 0; j < document.getElementById(idList[i]).innerHTML.length; j++){
+//console.log(document.getElementById(idList[i]).innerHTML.substr(j,j+1));
+          if(document.getElementById(idList[i]).innerHTML.substr(j,j+1)!='▲'){
+              score++;
+              tempScore++;
+          }
+      }
+      for(var j = 0; j < document.getElementById(EneidList[i]).innerHTML.length; j++){
+          if(document.getElementById(EneidList[i]).innerHTML.substr(j,j+1)!='▲'){
+              eneScore++;
+              tempEneScore++;
+          }
+      }
+      if(tempScore > tempEneScore){winCount++;}
+      else if(tempScore < tempEneScore){eWinCount++;}
+      tempScore = 0;
+      tempEneScore = 0;
   }
 }
 
@@ -46,6 +87,7 @@ function upDateScore() {
 }
 
 function highLightCurrentColumn() {
+    "use strict";
   //color current pos
   var temp = document.getElementsByClassName(colList[n]);
   if(temp[0].style.backgroundColor !== "#81C3A5"){
@@ -73,6 +115,8 @@ function highLightCurrentColumn() {
 }
 
 function writeWinner() {
+    "use strict";
+
     if(winCount > eWinCount) {
         document.getElementById("mWin").innerHTML = "勝";
         document.getElementById("eWin").innerHTML = "負";
@@ -98,6 +142,7 @@ function writeWinner() {
 }
 
 function getNumScoreCurretMatch() {
+    "use strict";
   var result;
   result = document.getElementById(idList[n]).innerHTML.length
     + document.getElementById(EneidList[n]).innerHTML.length;
@@ -114,10 +159,6 @@ function undo(){
     var tempPos = addedScoreList[addedScoreList.length - 1]; //m1 ... Em1
     var tempHTML = document.getElementById(tempPos).innerHTML;
     document.getElementById(tempPos).innerHTML = tempHTML.substr(0, tempHTML.length-1);
-    if(tempPos.substr(0, 1) === "m"){ // my side
-      score--;
-    }
-    else {eneScore--;}
     addedScoreList.pop();
   }
   else {  //no more char in current Match
@@ -128,12 +169,9 @@ function undo(){
 //my side
 document.getElementById("men").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'メ';
-        //var temp = new addedScore("メ", idList[n]);
-        //addedScoreList.push(new addedScore("メ", idList[n]));
         addedScoreList.push(idList[n]);
-        score++;
         upDateScore();
     } else {
         alert("次へを押してください");
@@ -142,30 +180,48 @@ document.getElementById("men").addEventListener('click', function () {
 
 document.getElementById("ko").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'コ';
         addedScoreList.push(idList[n]);
-        score++;
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
 
 document.getElementById("do").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'ド';
         addedScoreList.push(idList[n]);
-        score++;
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
 
 document.getElementById("tu").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(idList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(idList[n]).innerHTML += 'ツ';
         addedScoreList.push(idList[n]);
-        score++;
+        upDateScore();
+    } else {alert("次へを押してください"); }
+}, false);
+
+document.getElementById("ha").addEventListener('click', function () {
+    "use strict";
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
+        var FoundH = false;
+        var temp = document.getElementById(idList[n]).innerHTML;
+        for(var i = 0; i < document.getElementById(idList[n]).innerHTML.length; i++){
+//console.log(document.getElementById(idList[n]).innerHTML.substr(i,i+1));
+
+            if(document.getElementById(idList[n]).innerHTML.substr(i,i+1) === '▲'){
+                document.getElementById(idList[n]).innerHTML = temp.slice(0, i) + temp.slice(i + 1);
+//console.log("TEMP" + temp.slice(0, i) + temp.slice(i));
+                document.getElementById(idList[n]).innerHTML += '反';
+                FoundH = true;
+            }
+        }
+        if(!FoundH){document.getElementById(idList[n]).innerHTML += '▲';}
+        addedScoreList.push(idList[n]);
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
@@ -173,40 +229,57 @@ document.getElementById("tu").addEventListener('click', function () {
 //Opponents side
 document.getElementById("Enemen").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(EneidList[n]) && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'メ';
         addedScoreList.push(EneidList[n]);
-        eneScore++;
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
 
 document.getElementById("Eneko").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'コ';
         addedScoreList.push(EneidList[n])
-        eneScore++;
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
 
 document.getElementById("Enedo").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'ド';
         addedScoreList.push(EneidList[n])
-        eneScore++;
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
 
 document.getElementById("Enetu").addEventListener('click', function () {
     "use strict";
-    if (document.getElementById(EneidList[n]).innerHTML.length < 2 && isTotalLessThanThree()) {
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
         document.getElementById(EneidList[n]).innerHTML += 'ツ';
         addedScoreList.push(EneidList[n])
-        eneScore++;
+        upDateScore();
+    } else {alert("次へを押してください"); }
+}, false);
+
+document.getElementById("Eneha").addEventListener('click', function () {
+    "use strict";
+    if (!isThisCellFull(EneidList[n]) && isTotalLessThanThree()) {
+        var FoundH = false;
+        var temp = document.getElementById(EneidList[n]).innerHTML;
+        for(var i = 0; i < document.getElementById(EneidList[n]).innerHTML.length; i++){
+//console.log(document.getElementById(EneidList[n]).innerHTML.substr(i,i+1));
+
+            if(document.getElementById(EneidList[n]).innerHTML.substr(i,i+1) === '▲'){
+                document.getElementById(EneidList[n]).innerHTML = temp.slice(0, i) + temp.slice(i + 1);
+//console.log("TEMP" + temp.slice(0, i) + temp.slice(i));
+                document.getElementById(EneidList[n]).innerHTML += '反';
+                FoundH = true;
+            }
+        }
+        if(!FoundH){document.getElementById(EneidList[n]).innerHTML += '▲';}
+        addedScoreList.push(EneidList[n]);
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
