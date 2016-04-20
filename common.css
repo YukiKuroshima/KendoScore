@@ -5,6 +5,7 @@ table {
     margin-right: auto;
 }
 td {
+    height: 25px;
 	border: solid 1px;
 	padding: 0.5em;
 }
@@ -45,4 +46,23 @@ button {
 button:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #AAAE93;
+}
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }

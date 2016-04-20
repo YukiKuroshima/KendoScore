@@ -211,16 +211,22 @@ document.getElementById("ha").addEventListener('click', function () {
         var FoundH = false;
         var temp = document.getElementById(idList[n]).innerHTML;
         for(var i = 0; i < document.getElementById(idList[n]).innerHTML.length; i++){
-//console.log(document.getElementById(idList[n]).innerHTML.substr(i,i+1));
-
             if(document.getElementById(idList[n]).innerHTML.substr(i,i+1) === '▲'){
                 document.getElementById(idList[n]).innerHTML = temp.slice(0, i) + temp.slice(i + 1);
-//console.log("TEMP" + temp.slice(0, i) + temp.slice(i));
                 document.getElementById(idList[n]).innerHTML += '反';
                 FoundH = true;
             }
         }
         if(!FoundH){document.getElementById(idList[n]).innerHTML += '▲';}
+        addedScoreList.push(idList[n]);
+        upDateScore();
+    } else {alert("次へを押してください"); }
+}, false);
+
+document.getElementById("hu").addEventListener('click', function () {
+    "use strict";
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
+        document.getElementById(idList[n]).innerHTML += '不勝';
         addedScoreList.push(idList[n]);
         upDateScore();
     } else {alert("次へを押してください"); }
@@ -283,6 +289,16 @@ document.getElementById("Eneha").addEventListener('click', function () {
         upDateScore();
     } else {alert("次へを押してください"); }
 }, false);
+
+document.getElementById("Enehu").addEventListener('click', function () {
+    "use strict";
+    if (!isThisCellFull(idList[n]) && isTotalLessThanThree()) {
+        document.getElementById(EneidList[n]).innerHTML += '不勝';
+        addedScoreList.push(EneidList[n])
+        upDateScore();
+    } else {alert("次へを押してください"); }
+}, false);
+
 
 document.getElementById('next').addEventListener('click', function () {
     "use strict";

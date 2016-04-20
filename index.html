@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang = "ja">
-<meta charset="utf-8">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <link href="common.css" rel="stylesheet" type="text/css" media="all">
+
     <title>簡単剣道スコア表</title>
+
     <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
   </head>
@@ -63,6 +70,7 @@
     <button id="do" class="myBtn">味方ドウ</button>
     <button id="tu" class="myBtn">味方ツキ</button>
     <button id="ha" class="myBtn">味方反則</button>
+    <button id="hu" class="myBtn">味方不戦勝</button>
     <button id="next" class="actBtn">次へ</button>
     <br/>
 
@@ -71,8 +79,19 @@
     <button id="Enedo" class = "enBtn">敵ドウ</button>
     <button id="Enetu" class = "enBtn">敵ツキ</button>
     <button id="Eneha" class = "enBtn">敵反則</button>
+    <button id="Enehu" class = "enBtn">敵不戦勝</button>
     <button id="undo" class="actBtn">取り消し</button>
 
+    <footer class="footer">
+      <div class="container">
+        <a href="http://yukikuroshima.github.io/KendoScoreboardENGver/">
+        <p class="text-muted">Use English Ver.</p>
+        </a>
+      </div>
+    </footer>
+
     <script type="text/javascript" src="common.js" charset="UTF-8"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
   </body>
 </html>
